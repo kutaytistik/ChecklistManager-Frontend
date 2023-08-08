@@ -1,0 +1,17 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>TemplateId</th>
+            <th>Template Title</th>
+            <th>Template Items</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let template of templates">
+            <td>{{template.templateId}}</td>
+            <td>{{template.title}}</td>
+            <td>{{template.items}}</td>
+        </tr>
+
+    </tbody>
+</table>

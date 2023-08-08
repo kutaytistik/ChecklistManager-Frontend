@@ -1,0 +1,51 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="title">Kullanıcı Ekle</h5>
+            </div>
+            <div class="card-body ">
+                <form [formGroup]="userAddForm">
+                    <div class="mb-3">
+                        <label for="firstName">Ad:</label>
+                        <div class="form-group">
+                            <input type="text" id="firstName" formControlName="firstName" class="form-control "
+                                placeholder="Adınızı Giriniz">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="lastName">Soyad:</label>
+                        <div class="form-group">
+
+                            <input type="text" id="lastName" formControlName="lastName" class="form-control "
+                                placeholder="Soyadınızı Giriniz">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email">Email:</label>
+                        <div class="form-group">
+                            <input type="email" id="email" formControlName="email" class="form-control "
+                                placeholder="Mail Adresinizi Giriniz">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="age">Yaş:</label>
+                        <div class="form-group">
+                            <input type="number" id="age" formControlName="age" class="form-control "
+                                placeholder="Yaşınızı Giriniz">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-fill btn-primary" (click)="add()">Ekle</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
