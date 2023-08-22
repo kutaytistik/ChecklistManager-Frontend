@@ -1,1 +1,35 @@
-<p>template-add works!</p>
+<div class="d-flex flex-column p-4 gap-4 py-5 align-items-center justify-content-center">
+  <div class="list-group">
+    <div class="list-group-item bg-primary text-white">
+      <h3 class="fw-bold">
+        <ng-container *ngIf="!editTitle; else editTitleInput">
+          <span (click)="editTitle = true">{{ templateTitle || 'Template Başlığı' }}</span>
+        </ng-container>
+        <ng-template #editTitleInput>
+          <input class="form-control" [(ngModel)]="templateTitle" (blur)="editTitle = false">
+        </ng-template>
+      </h3>
+    </div>
+
+    <div *ngFor="let item of checklistItems; let i = index" class="list-group-item">
+      <div class="checklist-item">
+        <div class="item-content">
+          <strong>{{ item.task }}</strong>
+        </div>
+        <button class="delete-button" (click)="removeItem(i)">
+          <img src="assets/images/delete.png" alt="Delete" />
+        </button>
+      </div>
+    </div>
+
+    <div class="list-group-item d-flex gap-3 bg-body-tertiary">
+      <input type="text" [(ngModel)]="newChecklistItem" class="w-100" placeholder="Yapılacak Yeni Bir Görev Ekleyin">
+      <button (click)="addItem()" class="btn btn-secondary">Yeni Görev Ekle</button>
+    </div>
+    
+    <div class="list-group-item d-flex justify-content-end">
+      <button (click)="submitTemplate()" class="btn btn-primary">Template Ekle</button>
+    </div>
+  </div>
+</div>
+<div style="height: 375px;"></div>

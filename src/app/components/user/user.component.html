@@ -1,21 +1,36 @@
-<table class="table">
-    <thead>
-        <tr>
-            <th>UserId</th>
-            <th>FirstName</th>
-            <th>LastName</th>
-            <th>Email</th>
-            <th>Age</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let user of users">
-            <td>{{user.id}}</td>
-            <td>{{user.firstName}}</td>
-            <td>{{user.lastName}}</td>
-            <td>{{user.email}}</td>
-            <td>{{user.age}}</td>
-        </tr>
+<div class="search-container">
+  <label for="userId">Kullanıcı ID:</label>
+  <input type="number" id="userId" [(ngModel)]="searchId">
+  <button (click)="searchUser()">Filtrele</button>
+</div>
 
-    </tbody>
+<h2 class="center-heading">Kullanıcılar Listesi</h2>
+<hr>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Kullanıcı Id</th>
+      <th>İsim</th>
+      <th>Soyisim</th>
+      <th>Email Adresi</th>
+      <th>Yaş</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="selectedUser">
+      <td>{{ selectedUser.id }}</td>
+      <td>{{ selectedUser.firstName }}</td>
+      <td>{{ selectedUser.lastName }}</td>
+      <td>{{ selectedUser.email }}</td>
+      <td>{{ selectedUser.age }}</td>
+    </tr>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.firstName }}</td>
+      <td>{{ user.lastName }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.age }}</td>
+    </tr>
+  </tbody>
 </table>
+

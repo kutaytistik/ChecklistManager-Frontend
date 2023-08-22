@@ -20,4 +20,9 @@ export class UserService {
     let newPath=this.apiUrl+"Users/add";
     return this.httpClient.post(newPath,user);
   }
+
+  getByIdUser(id:number){
+    let newPath=this.apiUrl+'Users/getbyid?id='+id;
+    return this.httpClient.get(newPath);
+  }
 }

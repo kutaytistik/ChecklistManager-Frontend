@@ -1,0 +1,54 @@
+<div class="search-container">
+  <label for="checklistId">Checklist Id: </label>
+  <input type="number" id="checklistId" [(ngModel)]="searchId" class="form-control">
+  <button (click)="searchChecklist()" class="btn btn-primary">Filtrele</button>
+</div>
+
+<div *ngIf="selectedChecklist" class="checklist-container">
+  <div class="checklist">
+    <h2>{{ selectedChecklist.title }}</h2>
+    <table class="table">
+      <tr>
+        <th>Checklist Id</th>
+        <th>Checklist İçeriği</th>
+      </tr>
+      <tr>
+        <td class="checklist-id">{{ selectedChecklist.checklistId }}</td>
+        <td class="checklist-content">
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let item of selectedChecklist.items; let i = index">
+              <input type="checkbox" [(ngModel)]="item.isCompleted" (click)="checklistItemCheckboxUpdated(item)"> {{ item.content }}
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div *ngIf="!selectedChecklist" class="checklist-container">
+  <h2 class="center-heading">Oluşturduğum Checklistler</h2>
+  <hr>
+  <table class="table">
+    <tr>
+      <th><u>Checklist Id</u></th>
+      <th><u>Checklist İçeriği</u></th>
+    </tr>
+    <ng-container *ngFor="let checklist of checklists; let i = index">
+      <tr>
+        <td>{{ checklist.checklistId }}</td>
+        <td>
+          <h4>{{ checklist.title }}</h4>
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let item of checklist.items; let j = index">
+              <input type="checkbox" [(ngModel)]="item.isCompleted" (click)="checklistItemCheckboxUpdated(item)"> {{ item.content }}
+            </li>
+          </ul>
+        </td>
+      </tr>
+      <tr *ngIf="i < checklists.length - 1">
+        <td colspan="3"><hr></td>
+      </tr>
+    </ng-container>
+  </table>
+</div>

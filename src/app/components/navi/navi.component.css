@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Alkatra&family=Open+Sans&family=PT+Serif:ital,wght@1,700&display=swap');
+
+
+.navbar {
+  font-family: 'Alkatra', cursive;
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'PT Serif', serif;
+  height: 70px;
+  background-image: linear-gradient(to right, #007bff, #17a2b8);
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 28px;
+  color: #333;
+  text-decoration: none;
+  font-family: 'Arial', sans-serif;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: black;
+  margin: 0 5px;
+  font-weight: bold;
+}
+
+
+.dropdown-li {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  list-style: none;
+  padding: 0;
+  border: 1px solid #ddd;
+  z-index: 1;
+  top: 100%;
+  left: 0;
+  border-radius: 5px;
+}
+
+.dropdown-li:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 10px 15px;
+  display: block;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+  background-color: rgb(224, 243, 243);
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.search-box input[type="text"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+
+.search-box button {
+  background: linear-gradient(to right, #007bff, #6eff91);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.search-box button:hover {
+  background-color: #0056b3;
+}

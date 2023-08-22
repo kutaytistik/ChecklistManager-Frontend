@@ -1,0 +1,64 @@
+.search-container {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  .search-container label {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  .search-container input {
+    padding: 5px;
+    margin-right: 5px;
+    width: 200px;
+  }
+  
+  .search-container button {
+    padding: 8px 16px; 
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .checklist-container {
+    margin: 10px;
+  }
+  
+  .checklist{
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  
+  .checklist h2 {
+    margin-bottom: 10px;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .checklist-id,
+  .checklist-content {
+    position: relative;
+  }
+  
+  li {
+    list-style-type: none;
+  }
+  
+  .center-heading {
+    text-align: center;
+  }
+  

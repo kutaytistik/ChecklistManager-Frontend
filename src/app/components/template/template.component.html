@@ -1,17 +1,54 @@
-<table class="table">
-    <thead>
-        <tr>
-            <th>TemplateId</th>
-            <th>Template Title</th>
-            <th>Template Items</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let template of templates">
-            <td>{{template.templateId}}</td>
-            <td>{{template.title}}</td>
-            <td>{{template.items}}</td>
-        </tr>
+<div class="search-container">
+  <label for="templateId">Template Id: </label>
+  <input type="number" id="templateId" [(ngModel)]="searchId" class="form-control">
+  <button (click)="searchTemplate()" class="btn btn-primary">Filtrele</button>
+</div>
 
-    </tbody>
-</table>
+<div *ngIf="selectedTemplate" class="template-container">
+  <div class="template">
+    <h2>{{ selectedTemplate.title }}</h2>
+    <table class="table">
+      <tr>
+        <th>Template Id</th>
+        <th>Template İçeriği</th>
+      </tr>
+      <tr>
+        <td class="template-id">{{ selectedTemplate.templateId }}</td>
+        <td class="template-content">
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let item of selectedTemplate.items; let i = index">
+              <input type="checkbox" [value]="item.content" [(ngModel)]="selectedTemplateItemsState[i]" (click)="checklistItemCheckboxUpdated(item)"> {{ item.content }}
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div *ngIf="!selectedTemplate" class="template-container">
+  <h2 class="center-heading">Hazır Template Listesi</h2>
+  <hr>
+  <table class="table">
+    <tr>
+      <th><u>Template Id</u></th>
+      <th><u>Template İçeriği</u></th>
+    </tr>
+    <ng-container *ngFor="let template of templates; let i = index">
+      <tr>
+        <td>{{ template.templateId }}</td>
+        <td>
+          <h4>{{ template.title }}</h4>
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let item of template.items; let j = index">
+              <input type="checkbox" [value]="item.content" [(ngModel)]="template.items[j].isCompleted" (click)="checklistItemCheckboxUpdated(template.items[j])"> {{ item.content }}
+            </li>
+          </ul>
+        </td>
+      </tr>
+      <tr *ngIf="i < templates.length - 1">
+        <td colspan="3"><hr></td>
+      </tr>
+    </ng-container>
+  </table>
+</div>
